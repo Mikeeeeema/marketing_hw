@@ -1,0 +1,32 @@
+<div class="body">
+  <form #moiveForm="ngForm">
+    <div>
+      <input
+        type="checkbox"
+        name="selectAll"
+        [(ngModel)]="allSelected"
+        (change)="updateSelectAll()"
+      />
+      <label for="selectAll">Select All</label>
+    </div>
+
+    <ul *ngFor="let item of itemlist; let i = index">
+      <li>
+        <input
+          type="checkbox"
+          [name]="'moive' + i"
+          [id]="'moive' + i"
+          [(ngModel)]="selectedMovies[i]"
+          (change)="updateSelectedMoiveList()"
+        />
+        <label for="'moive' + i">{{ item }}</label>
+      </li>
+    </ul>
+    <button (click)="clearAll()">Clear All</button>
+  </form>
+  <hr />
+  <p>Selected Values:</p>
+  <ul *ngIf="ifSelectedMoive()">
+    <li *ngFor="let item of getSelectedMoives()">{{ item }}</li>
+  </ul>
+</div>
