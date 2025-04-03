@@ -75,5 +75,6 @@ export class CounterComponent implements OnChanges {
 
   onRedo() {
     this.redo.emit();
+    //111
   }
 }
