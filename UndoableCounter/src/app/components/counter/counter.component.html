@@ -1,0 +1,20 @@
+<h1>Undoable Counter</h1>
+<div class="main-container">
+  <div class="upper-countainer">
+    <button (click)="onUndo()">Undo</button>
+    <button [disabled]="!canRedo" (click)="onRedo()">Redo</button>
+  </div>
+  <div class="lower-countainer">
+    <div class="button-container">
+      <button (click)="minusOnehundred()">-100</button>
+      <button (click)="minusTen()">-10</button>
+      <button (click)="minusOne()">-1</button>
+    </div>
+    <p>{{ counter }}</p>
+    <div class="button-container">
+      <button (click)="plusOne()">+1</button>
+      <button (click)="plusTen()">+10</button>
+      <button (click)="plusHundred()">+100</button>
+    </div>
+  </div>
+</div>

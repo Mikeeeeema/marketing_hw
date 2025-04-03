@@ -1,0 +1,8 @@
+<app-counter
+  [item]="num"
+  [canRedo]="redoStack.length > 0"
+  (newNumber)="updateHistory($event)"
+  (undo)="undo()"
+  (redo)="redo()"
+></app-counter>
+<app-history [histories]="histories"></app-history>

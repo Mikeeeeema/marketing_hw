@@ -1,0 +1,31 @@
+* {
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.upper-countainer {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-around;
+  gap: 20px;
+}
+
+.lower-countainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
