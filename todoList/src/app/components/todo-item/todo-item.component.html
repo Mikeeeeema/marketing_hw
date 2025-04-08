@@ -1,0 +1,11 @@
+<li>
+  <input type="checkbox" [checked]="todo.completed" (change)="toggleTodo()" />
+  <span (dblclick)="startEdit()">{{ todo.title }}</span>
+  <input
+    type="text"
+    #newTitle
+    *ngIf="ifEditing"
+    [value]="todo.title"
+    (blur)="saveEdit(newTitle.value)"
+  />
+</li>

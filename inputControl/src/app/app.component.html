@@ -1,0 +1,14 @@
+<p>hello world!</p>
+
+<!-- 1. no rxjs ust -->
+<!-- <input #name (keyup)="filterNames(name.value)" /> -->
+
+<!-- 2. RxJS 的 fromEvent 手动订阅事件 -->
+<input #nameInput />
+
+<!-- 3. Reactive Form + valueChanges -->
+<!-- <input [formControl]="username" placeholder="please inout a name" /> -->
+
+<div *ngFor="let user of displayUserInfolist">
+  <p>{{ user.name }} - Age: {{ user.age }}</p>
+</div>

@@ -1,0 +1,26 @@
+<p>todo-list works!</p>
+
+<section>
+  <input
+    type="text"
+    placeholder="Add a new todo"
+    #todoInput
+    (keyup.enter)="addTodo(todoInput.value); todoInput.value = ''"
+  />
+  <div>
+    <button (click)="deleteSelected()">Delete</button>
+  </div>
+  <div>
+    <button (click)="selectAll()">Select All</button>
+  </div>
+
+  <ul>
+    <!-- <li *ngFor="let todo of Todos">{{ todo.title }} {{ todo.id }}</li> -->
+    <app-todo-item
+      *ngFor="let todo of Todos"
+      [todo]="todo"
+      (toggle)="todoService.toggleTodo(todo.id)"
+      (edit)="editTodo(todo.id, $event)"
+    ></app-todo-item>
+  </ul>
+</section>
