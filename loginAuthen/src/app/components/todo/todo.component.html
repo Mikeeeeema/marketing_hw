@@ -1,2 +1,22 @@
 <p>todo works!</p>
 <button (click)="logout()">Log out</button>
+
+<div class="todolist">
+  <input
+    type="text"
+    placeholder="Add a new todo..."
+    #todoInput
+    (keyup.enter)="addTodo(todoInput.value); todoInput.value = ''"
+  />
+  <button (click)="deleteSelected()">Delete</button>
+  <button (click)="selectAll()">selectAll</button>
+
+  <ul>
+    <app-todo-item
+      *ngFor="let todo of Todos"
+      [todo]="todo"
+      (toggle)="todoService.toggleTodo(todo.id)"
+      (edit)="todoService.edit(todo.id, $event)"
+    ></app-todo-item>
+  </ul>
+</div>
