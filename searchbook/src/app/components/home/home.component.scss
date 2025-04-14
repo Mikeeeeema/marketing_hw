@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchbook-container {
+  flex: 7;
+  margin: 10px;
+}
+.wishlist-container {
+  flex: 3;
+  margin: 10px;
+}

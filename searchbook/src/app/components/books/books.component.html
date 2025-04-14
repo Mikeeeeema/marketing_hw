@@ -1,0 +1,18 @@
+<p>books works!</p>
+<input
+  type="text"
+  placeholder="please enter book's name..."
+  #searchInput
+  (input)="onSearch(searchInput.value)"
+  style="width: 400px"
+/>
+
+<ul>
+  <!-- <li *ngFor="let book of books">{{ book.bookName }}</li> -->
+  <app-book-card
+    class="item"
+    *ngFor="let book of books"
+    [book]="book"
+    (click)="addToWishlist(book)"
+  ></app-book-card>
+</ul>

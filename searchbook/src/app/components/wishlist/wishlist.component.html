@@ -1,0 +1,9 @@
+<p>wishlist works!</p>
+<ul>
+  <li *ngFor="let book of wishlist">
+    <span>
+      {{ book.bookName }}
+    </span>
+    <button (click)="removeFromWishlist(book)">X</button>
+  </li>
+</ul>
