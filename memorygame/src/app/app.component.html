@@ -1,0 +1,14 @@
+<h1>Memory Game</h1>
+<div class="board">
+  <div class="row" *ngFor="let itemlist of board">
+    <div class="col" *ngFor="let item of itemlist" (click)="flipCard(item)">
+      <div *ngIf="item.isFlipped">
+        {{ item.emoji }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="restart" *ngIf="gameOver">
+  <button (click)="generateBoard()">Restart the game</button>
+</div>

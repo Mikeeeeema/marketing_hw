@@ -1,0 +1,44 @@
+* {
+  text-align: center;
+}
+
+.board {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vh;
+  height: 60vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  // justify-content: space-evenly;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.col {
+  flex: 1;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  user-select: none; //forbidden selet word
+}
+
+.col:hover {
+  background-color: #e0e0e0;
+}
+
+.restart {
+  margin-top: 20px; /* 与棋盘保持一定距离 */
+  text-align: center; /* 按钮居中 */
+}
