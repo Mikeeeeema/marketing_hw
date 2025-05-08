@@ -1,0 +1,31 @@
+<h1>User Posts Table</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users()">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td><button (click)="onExpand(user.id)">Expand</button></td>
+    </tr>
+
+    <tr class="expand-section" *ngIf="expandedUserId !== null">
+      <td colspan="4">
+        <div *ngIf="isloading">Loading post...</div>
+        <div *ngIf="!isloading">
+          <div class="post-block" *ngFor="let post of posts()">
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.body }}</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
