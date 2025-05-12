@@ -1,0 +1,31 @@
+<p>dt works!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th (click)="onSort('id')">ID</th>
+      <th (click)="onSort('name')">Name</th>
+      <th (click)="onSort('age')">Age</th>
+      <th (click)="onSort('occupation')">Occupation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of getUsers">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.occupation }}</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<label>
+  <select [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()" required>
+    <option *ngFor="let size of pageSizeOptions" [value]="size">
+      show {{ size }}
+    </option>
+  </select>
+</label>
+<button (click)="goPrevious()">Prev</button>
+Page {{ currentPage }} of {{ totalPages }}
+<button (click)="goNext()">Next</button>

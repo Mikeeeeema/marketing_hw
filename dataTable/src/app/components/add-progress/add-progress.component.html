@@ -1,0 +1,6 @@
+<p>add-progress works!</p>
+<button (click)="addBar()">Add</button>
+
+<div class="bar-container" *ngFor="let bar of bars">
+  <div class="bar-fill" [style.width.%]="bar.progress"></div>
+</div>
