@@ -1,0 +1,12 @@
+<p>image-carousel works!</p>
+
+<div class="container">
+  <div
+    class="innerContainer"
+    [style.transform]="'translateX(-' + index * 100 + '%)'"
+  >
+    <img *ngFor="let image of images" [src]="image" alt="image" class="image" />
+  </div>
+  <button class="btn left" (click)="prev()"><</button>
+  <button class="btn right" (click)="next()">></button>
+</div>

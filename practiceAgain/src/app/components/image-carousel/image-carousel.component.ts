@@ -9,19 +9,18 @@ import { Component, Input } from '@angular/core';
 })
 export class ImageCarouselComponent {
   @Input() images!: string[];
-
-  currentIndex: number = 0;
+  index: number = 0;
 
   prev() {
-    console.log(this.currentIndex);
-    if (this.currentIndex > 0) this.currentIndex--;
-    console.log(this.currentIndex);
+    console.log(this.index);
+    if (this.index > 0) this.index--;
+    console.log(this.index);
   }
 
   next() {
-    console.log(this.currentIndex);
+    console.log(this.index);
 
-    if (this.currentIndex < this.images.length - 1) this.currentIndex++;
-    console.log(this.currentIndex);
+    if (this.index < this.images.length - 1) this.index++;
+    console.log(this.index);
   }
 }
