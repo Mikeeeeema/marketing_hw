@@ -1,0 +1,4 @@
+<p>booklist works!</p>
+<div *ngFor="let book of books">
+  <app-book [book]="book" (click)="onClick(book)"></app-book>
+</div>

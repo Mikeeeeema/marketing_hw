@@ -15,6 +15,7 @@ export class BooksService {
     const url = `${this.baseurl}${query || 'bookname'}`;
     return this.http.get<rawBooksData>(url).pipe(
       map((data) => {
+        //？？？？
         const books = data.items.map((item) => ({
           bookPicture: item.volumeInfo.imageLinks.thumbnail,
           bookName: item.volumeInfo.title,
