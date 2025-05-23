@@ -21,7 +21,6 @@ export class AppComponent {
   row: number = 0;
   col: number = 0;
   table: number[][] = [];
-  ifEven = true;
 
   ngOnInit() {
     this.input = this.fb.group({
@@ -44,20 +43,21 @@ export class AppComponent {
     console.log('table1:', table1);
     const len: number = this.row * this.col;
     let num = 1;
+    let ifEven = true;
 
     for (let i = 0; i < this.col; i++) {
-      if (this.ifEven) {
+      if (ifEven) {
         for (let j = 0; j < this.row; j++) {
           table1[j][i] = num;
           num++;
         }
-        this.ifEven = false;
+        ifEven = false;
       } else {
         for (let j = this.row - 1; j >= 0; j--) {
           table1[j][i] = num;
           num++;
         }
-        this.ifEven = true;
+        ifEven = true;
       }
     }
 
