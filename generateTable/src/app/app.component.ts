@@ -21,12 +21,14 @@ export class AppComponent {
   row: number = 0;
   col: number = 0;
   table: number[][] = [];
+  ifEven = true;
 
   ngOnInit() {
     this.input = this.fb.group({
       row: ['3'],
       col: ['4'],
     });
+    this.onSubmit();
   }
 
   onSubmit() {
@@ -44,9 +46,18 @@ export class AppComponent {
     let num = 1;
 
     for (let i = 0; i < this.col; i++) {
-      for (let j = 0; j < this.row; j++) {
-        table1[j][i] = num;
-        num++;
+      if (this.ifEven) {
+        for (let j = 0; j < this.row; j++) {
+          table1[j][i] = num;
+          num++;
+        }
+        this.ifEven = false;
+      } else {
+        for (let j = this.row - 1; j >= 0; j--) {
+          table1[j][i] = num;
+          num++;
+        }
+        this.ifEven = true;
       }
     }
 
