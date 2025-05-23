@@ -1,0 +1,23 @@
+<h1>Generate Table</h1>
+
+<form [formGroup]="input" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="row">Rows </label>
+    <input type="text" formControlName="row" id="row" />
+  </div>
+
+  <div>
+    <label for="col">Columns </label>
+    <input type="text" formControlName="col" id="col" />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<table class="t">
+  <tr *ngFor="let r of table" class="r">
+    <td *ngFor="let c of r" class="d">
+      {{ c }}
+    </td>
+  </tr>
+</table>
