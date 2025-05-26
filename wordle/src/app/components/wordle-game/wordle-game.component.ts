@@ -25,7 +25,6 @@ export class WordleGameComponent {
     if (this.gameOver) {
       return;
     }
-    //1. 如果只是字母
     if (c === '⌫') {
       if (this.currentIndex) {
         this.history[this.currentRow][this.currentIndex - 1] = '';
