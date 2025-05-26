@@ -1,0 +1,42 @@
+<h1>Wordle</h1>
+<hr />
+<div class="history-container">
+  <table class="history">
+    <tr *ngFor="let r of history; let rowIndex = index" class="row">
+      <td
+        *ngFor="let c of r; let colIndex = index"
+        class="col"
+        [ngClass]="getCellStatus(rowIndex, colIndex)"
+        [style.animation-delay]="
+          getCellStatus(rowIndex, colIndex) ? colIndex * 0.4 + 's' : null
+        "
+      >
+        <!-- <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              {{ c }}
+            </div>
+            <div
+              class="flip-card-back"
+              [ngClass]="getCellStatus(rowIndex, colIndex)"
+            >
+              {{ c }}
+            </div>
+          </div>
+        </div> -->
+        {{ c }}
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="keyboard-container">
+  <table class="keyboard">
+    <tr *ngFor="let r of keyboard" class="row-k">
+      <td *ngFor="let c of r" class="col-k">
+        <button class="btn" (click)="onClick(c)">{{ c }}</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<button *ngIf="gameOver" (click)="resetGame()" class="reset">Reset</button>
