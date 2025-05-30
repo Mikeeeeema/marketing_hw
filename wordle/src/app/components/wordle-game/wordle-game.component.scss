@@ -34,6 +34,7 @@
   position: relative;
   // transition: transform 0.6s ease-in-out;
   transform-style: preserve-3d;
+  transform: rotateX(0deg);
 }
 .correct.flip-card-inner,
 .present.flip-card-inner,
@@ -50,7 +51,8 @@
 }
 
 .flip-card-back {
-  // transform: rotateX(180deg);
+  transform: rotateX(180deg);
+
   font-size: 1.5rem;
 }
 
@@ -77,12 +79,6 @@
 
 .btn:hover {
   background-color: #9fa0a2;
-}
-
-.flip-card-inner.correct,
-.flip-card-inner.present,
-.flip-card-inner.absent {
-  animation: flip 1s forwards;
 }
 
 @keyframes flip {

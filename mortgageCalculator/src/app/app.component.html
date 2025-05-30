@@ -1,0 +1,23 @@
+<h1>Mortgage Calculator</h1>
+
+<form [formGroup]="mortgageinput" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="loanamount">Loan Amount: </label>
+    <input type="number" formControlName="loanamount" />
+  </div>
+  <div>
+    <label for="loanterm">Loan Term (years): </label>
+    <input type="number" formControlName="loanterm" />
+  </div>
+  <div>
+    <label for="apr">Interest Rate(%): </label>
+    <input type="number" formControlName="apr" />
+  </div>
+  <button type="submit">Calculate</button>
+</form>
+
+<div>
+  Monthly Payment Amount:{{ mpa | currency : "USD" : "symbol" : "1.2-2" }}
+</div>
+<div>Total Payment mount:{{ tpa | currency : "USD" : "symbol" : "1.2-2" }}</div>
+<div>Total Interest Paid:{{ tip | currency : "USD" : "symbol" : "1.2-2" }}</div>

@@ -1,0 +1,44 @@
+<h1>Transfer List</h1>
+
+<div class="container">
+  <div class="left">
+    <div *ngFor="let e of llist" class="detail">
+      <input
+        type="checkbox"
+        [id]="e"
+        [value]="e"
+        [checked]="llistselected.includes(e)"
+        (change)="onLeftCheck($event)"
+      />
+      <label [for]="e">{{ e }}</label>
+    </div>
+  </div>
+  <div class="middle">
+    <button [disabled]="rlist.length === 0" (click)="moveAllLeft()"><<</button>
+    <button
+      [disabled]="rlistselected.length === 0"
+      (click)="moveSelectedLeft()"
+    >
+      <
+    </button>
+    <button
+      [disabled]="llistselected.length === 0"
+      (click)="moveSelectedRight()"
+    >
+      >
+    </button>
+    <button [disabled]="llist.length === 0" (click)="moveAllRight()">>></button>
+  </div>
+  <div class="right">
+    <div *ngFor="let e of rlist" class="detail">
+      <input
+        type="checkbox"
+        [id]="e"
+        [value]="e"
+        [checked]="rlistselected.includes(e)"
+        (change)="onRightCheck($event)"
+      />
+      <label [for]="e">{{ e }}</label>
+    </div>
+  </div>
+</div>
