@@ -1,0 +1,40 @@
+<h1>Connect Four Game</h1>
+<hr />
+<div class="input-container">
+  <button
+    *ngFor="let cell of [0, 1, 2, 3, 4, 5, 6]; let i = index"
+    class="cell input"
+    (mouseenter)="hoverIndex = i"
+    (mouseleave)="hoverIndex = null"
+    [disabled]="gameOver"
+    [ngStyle]="
+      hoverIndex === i && !gameOver
+        ? { 'background-color': this.currentPlayer }
+        : {}
+    "
+    (click)="onClick(i)"
+  ></button>
+</div>
+
+<table class="table">
+  <tr *ngFor="let r of board; let row = index" class="r">
+    <td
+      *ngFor="let c of r; let col = index"
+      class="cell"
+      [ngStyle]="c !== '' ? { background: board[row][col] } : {}"
+    ></td>
+  </tr>
+</table>
+<div class="btn-container">
+  <div
+    class="cell"
+    [ngStyle]="{ 'background-color': currentPlayer }"
+    *ngIf="gameOver"
+  ></div>
+  <div *ngIf="gameOver && !isDraw">
+    {{ currentPlayer === r ? "Red" : "Yellow" }} Wins!
+  </div>
+  <div *ngIf="gameOver && isDraw">Draw!</div>
+
+  <button class="reset-btn" (click)="resetBoard()">Reset</button>
+</div>
