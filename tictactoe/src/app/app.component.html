@@ -1,0 +1,22 @@
+<h1>Tic Tac Toe</h1>
+<hr />
+
+<p *ngIf="!gameOver">Player {{ currentPlayer }} turn</p>
+<p *ngIf="gameOver && !ifDraw">Player {{ currentPlayer }} wins</p>
+<p *ngIf="gameOver && ifDraw">Draw!</p>
+
+<table class="board-container">
+  <tr *ngFor="let r of board; let row = index">
+    <td
+      *ngFor="let c of r; let col = index"
+      class="cell"
+      (click)="onClick(row, col)"
+    >
+      {{ c }}
+    </td>
+  </tr>
+</table>
+
+<div class="container">
+  <button (click)="onReset()">Reset</button>
+</div>
