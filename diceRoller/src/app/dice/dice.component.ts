@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class DiceComponent {
   @Input() num!: number;
-  dots: { style: any }[] = [];
+  dots: { style: Position }[] = [];
 
   ngOnChanges() {
     console.log(this.num);
