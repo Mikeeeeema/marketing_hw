@@ -1,0 +1,14 @@
+.container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 390px;
+}
+
+.dice {
+  margin: 10px;
+}

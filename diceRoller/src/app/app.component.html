@@ -1,0 +1,7 @@
+<div>Number of dice</div>
+<input type="number" [(ngModel)]="inputNum" />
+<button (click)="onClick()">Roll</button>
+
+<div class="container">
+  <app-dice *ngFor="let n of dices" [num]="n" class="dice"></app-dice>
+</div>
