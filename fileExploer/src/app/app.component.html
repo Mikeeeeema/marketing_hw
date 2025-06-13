@@ -1,0 +1,59 @@
+<h1>File Explore</h1>
+<ng-container *ngFor="let item of sort(data)">
+  <ng-template
+    [ngTemplateOutlet]="recursiveList"
+    [ngTemplateOutletContext]="{ $implicit: item, level: 0 }"
+  ></ng-template>
+</ng-container>
+
+<ng-template #recursiveList let-item let-level="level">
+  <div [style.paddingLeft.px]="level * 20">
+    <span *ngIf="item.children; else file" [style.fontWeight]="'bold'">
+      {{ item.name }}
+      <button (click)="toggle(item.id)">
+        <!-- @if(isExpanded(item.id)){ [-] } @else{ [+] } -->
+        {{ isExpanded(item.id) ? "[-]" : "[+]" }}
+      </button>
+      <div *ngIf="isExpanded(item.id)">
+        <ng-container *ngFor="let child of sort(item.children)">
+          <ng-template
+            [ngTemplateOutlet]="recursiveList"
+            [ngTemplateOutletContext]="{ $implicit: child, level: level + 1 }"
+          ></ng-template>
+        </ng-container>
+      </div>
+    </span>
+    <!-- *ngIf 语法糖自己知道如何去找模板引用变量；else 后面直接跟着模板引用名；Angular 编译器会自动去查找当前作用域下的 #file 模板，并在 false 分支时渲染它。 -->
+    <ng-template #file>
+      <span [style.fontWeight]="'normal'"> {{ item.name }} </span>
+    </ng-template>
+  </div>
+</ng-template>
+<!-- <ul>
+  <ng-container *ngFor="let item of sortItems(data)">
+    <ng-template
+      [ngTemplateOutlet]="recursiveList"
+      [ngTemplateOutletContext]="{ $implicit: item, level: 0 }"
+    ></ng-template>
+  </ng-container>
+</ul>
+
+<ng-template #recursiveList let-item let-level="level">
+  <li [style.paddingLeft.px]="level * 20">
+    <span *ngIf="item.children; else file">
+      <button (click)="toggle(item.id)">
+        {{ isExpanded(item.id) ? "📂" : "📁" }}
+      </button>
+      {{ item.name }}
+      <ul *ngIf="isExpanded(item.id)">
+        <ng-container *ngFor="let child of sortItems(item.children!)">
+          <ng-template
+            [ngTemplateOutlet]="recursiveList"
+            [ngTemplateOutletContext]="{ $implicit: child, level: level + 1 }"
+          ></ng-template>
+        </ng-container>
+      </ul>
+    </span>
+    <ng-template #file> 📄 {{ item.name }} </ng-template>
+  </li>
+</ng-template> -->
