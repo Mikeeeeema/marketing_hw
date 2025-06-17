@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { map, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,11 @@ export class AppComponent {
     new Array(this.width).fill('')
   );
 
-  ngOnInit() {}
+  ngOnInit() {
+    of(1, 2, 3)
+      .pipe(map((value) => value * 10))
+      .subscribe(console.log);
+  }
 
   onClick(r: number, c: number) {
     if (this.board[r][c] !== '' || this.gameOver) {

@@ -13,11 +13,9 @@ import { DiceComponent } from './dice/dice.component';
 export class AppComponent {
   title = 'diceRoller';
   inputNum!: number;
-  ifClick = false;
   dices: number[] = [];
 
   onClick() {
-    this.ifClick = true;
     this.dices = [];
     for (let i = 0; i < this.inputNum; i++) {
       this.dices.push(Math.floor(Math.random() * 6 + 1));

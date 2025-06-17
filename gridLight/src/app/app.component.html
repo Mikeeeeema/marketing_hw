@@ -1,0 +1,12 @@
+<h1>Grid Light</h1>
+<hr />
+
+<div class="container">
+  <div
+    *ngFor="let grid of grids; let i = index"
+    class="grid"
+    [style.gridArea]="grid"
+    (click)="onClick(i)"
+    [class.active]="clicked[i]"
+  ></div>
+</div>
