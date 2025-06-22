@@ -1,0 +1,7 @@
+<h1>Proress Bar</h1>
+<hr />
+<button (click)="onclick()">Add Progress Bar</button>
+
+<div class="bar-container" *ngFor="let bar of bars">
+  <div class="bar-fill" [style.width.%]="bar.progress"></div>
+</div>
