@@ -1,0 +1,25 @@
+<h1 [style]="'text-align:center'">Flight Booker</h1>
+<hr />
+<div class="container">
+  <select [(ngModel)]="flightType" name="flightType">
+    <option value="one-way">One-way flight</option>
+    <option value="round-trip">Return Flight</option>
+  </select>
+  <div>
+    <input
+      type="date"
+      name="departureDate"
+      [min]="mindate1"
+      [(ngModel)]="departureDate"
+    />
+  </div>
+  <div *ngIf="flightType === 'round-trip'">
+    <input
+      type="date"
+      name="returnDate"
+      [min]="departureDate"
+      [(ngModel)]="returnDate"
+    />
+  </div>
+  <button (click)="book()">Book</button>
+</div>
