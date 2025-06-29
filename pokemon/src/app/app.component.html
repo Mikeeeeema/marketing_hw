@@ -1,0 +1,10 @@
+<h1 [style.text-align]="'center'">Pokemon</h1>
+<hr />
+
+<div *ngFor="let pokemon of data">
+  <img [src]="pokemon.picture" alt="" />
+  <div>{{ pokemon.name }}</div>
+  <ul *ngFor="let type of pokemon.types">
+    <li>{{ type }}</li>
+  </ul>
+</div>
