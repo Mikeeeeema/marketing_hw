@@ -1,0 +1,28 @@
+<h1 [style]="'text-align:center'">Search Github User</h1>
+<hr />
+
+<form (ngSubmit)="onSubmit()">
+  <input type="text" name="searchinput" [(ngModel)]="searchinput" />
+  <button type="submit">Submit</button>
+</form>
+<div>
+  <label for="filterword">Search: </label>
+  <input type="text" name="filterword" [(ngModel)]="filterword" />
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <td>User ID</td>
+      <td>User Name</td>
+      <td>User Profile URL Link</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filter()">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.url }}</td>
+    </tr>
+  </tbody>
+</table>
