@@ -1,0 +1,7 @@
+<div [style.border]="ele.color === titleColor ? `2px solid ${titleColor}` : 'none'">
+  <h2>{{ ele.title }}</h2>
+  <p>{{ ele.body }}</p>
+  <button [style.background-color]="ele.color" (click)="onClick()">
+    {{ ele.color }}
+  </button>
+</div>

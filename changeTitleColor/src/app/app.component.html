@@ -1,0 +1,11 @@
+<h1 [ngStyle]="{ 'text-align': 'center', color: titleColor }">
+  Change the Title
+</h1>
+<hr />
+
+<app-paragraph
+  *ngFor="let item of data"
+  [ele]="item"
+  [titleColor]="titleColor"
+  (newItemEvent)="changeTitle($event)"
+></app-paragraph>
